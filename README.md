@@ -20,13 +20,13 @@
 | id              | integer     | auto_increment primary key    |
 | name            | string      | null: false                   |
 | description     | text        | null: false                   |
-| category        | references  | null: false, foreign_key: true|
-| condition       | references  | null: false, foreign_key: true|
+| category_id     | integer     | null: false, foreign_key: true|
+| condition_id    | integer     | null: false, foreign_key: true|
 | price           | integer     | null: false                   |
-| user            | references  | null: false, foreign_key: true|
-| prefecture      | references  | null: false, foreign_key: true|
-| shipping_fee    | references  | null: false, foreign_key: true|
-| shipping_day    | references  | null: false, foreign_key: true|
+| user_id         | integer     | null: false, foreign_key: true|
+| prefecture_id   | integer     | null: false, foreign_key: true|
+| shipping_fee_id | integer     | null: false, foreign_key: true|
+| shipping_day_id | integer     | null: false, foreign_key: true|
 
 ### Categories Table
 | Column        | Type      | Options                       |
@@ -56,16 +56,16 @@
 | Column        | Type        | Options                       |
 |---------------|-------------|-------------------------------|
 | id            | integer     | auto_increment primary key    |
-| item          | references  | null: false, foreign_key: true|
-| user          | references  | null: false, foreign_key: true|
+| item_id       | integer     | null: false, foreign_key: true|
+| user_id       | integer     | null: false, foreign_key: true|
 
 ### Addresses Table
 | Column        | Type        | Options                       |
 |---------------|-------------|-------------------------------|
 | id            | integer     | auto_increment primary key    |
-| purchase      | references  | null: false, foreign_key: true|
+| purchase_id   | integer     | null: false, foreign_key: true|
 | postal_code   | string      | null: false                   |
-| prefecture    | references  | null: false, foreign_key: true|
+| prefecture_id | integer     | null: false, foreign_key: true|
 | city          | string      | null: false                   |
 | address       | string      | null: false                   |
 | building      | string      |                               |
@@ -89,7 +89,7 @@
   - belongs_to :prefecture
   - belongs_to :shipping_fee
   - belongs_to :shipping_day
-  - has_many :purchases
+  - has_one :purchase
 
 - Purchases
   - belongs_to :user
