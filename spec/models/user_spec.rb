@@ -3,7 +3,17 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
     before do
-      @user = User.new(nickname: 'test', email: 'test@example.com', password: 'password1', password_confirmation: 'password1', first_name: '太郎', last_name: '山田', first_name_kana: 'タロウ', last_name_kana: 'ヤマダ', birth_date: '1990-01-01')
+      @user = User.new(
+        nickname: 'test',
+        email: 'test@example.com',
+        password: 'password1',
+        password_confirmation: 'password1',
+        first_name: '太郎',
+        last_name: '山田',
+        first_name_kana: 'タロウ',
+        last_name_kana: 'ヤマダ',
+        birth_date: '1990-01-01'
+      )
     end
 
     context '新規登録できるとき' do
@@ -27,7 +37,17 @@ RSpec.describe User, type: :model do
 
       it '重複したemailが存在する場合登録できない' do
         @user.save
-        another_user = User.new(nickname: 'test2', email: @user.email, password: 'password1', password_confirmation: 'password1', first_name: '次郎', last_name: '田中', first_name_kana: 'ジロウ', last_name_kana: 'タナカ', birth_date: '1995-05-05')
+        another_user = User.new(
+          nickname: 'test2',
+          email: @user.email,
+          password: 'password1',
+          password_confirmation: 'password1',
+          first_name: '次郎',
+          last_name: '田中',
+          first_name_kana: 'ジロウ',
+          last_name_kana: 'タナカ',
+          birth_date: '1995-05-05'
+        )
         another_user.valid?
         expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
