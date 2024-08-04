@@ -1,4 +1,5 @@
 # README
+
 ## Database Design
 
 ### Users Table
@@ -22,32 +23,17 @@
 |-----------------|-------------|-------------------------------|
 | name            | string      | null: false                   |
 | description     | text        | null: false                   |
-| category_id     | integer     | null: false, foreign_key: true|
-| condition_id    | integer     | null: false, foreign_key: true|
+| category_id     | integer     | null: false                   |
+| condition_id    | integer     | null: false                   |
+| shipping_fee_id | integer     | null: false                   |
+| prefecture_id   | integer     | null: false                   |
+| shipping_days_id| integer     | null: false                   |
 | price           | integer     | null: false                   |
 | user            | references  | null: false, foreign_key: true|
 
 - Items
   - belongs_to :user
-  - belongs_to :category
-  - belongs_to :condition
   - has_one :purchase
-
-### Categories Table
-| Column  | Type   | Options     |
-|---------|--------|-------------|
-| name    | string | null: false |
-
-- Categories
-  - has_many :items
-
-### Conditions Table
-| Column  | Type   | Options     |
-|---------|--------|-------------|
-| name    | string | null: false |
-
-- Conditions
-  - has_many :items
 
 ### Purchases Table
 | Column  | Type       | Options                       |
@@ -61,14 +47,15 @@
   - has_one :address
 
 ### Addresses Table
-| Column       | Type       | Options                       |
-|--------------|------------|-------------------------------|
-| purchase     | references | null: false, foreign_key: true|
-| postal_code  | string     | null: false                   |
-| city         | string     | null: false                   |
-| address      | string     | null: false                   |
-| building     | string     |                               |
-| phone_number | string     | null: false                   |
+| Column           | Type       | Options                       |
+|------------------|------------|-------------------------------|
+| purchase         | references | null: false, foreign_key: true|
+| postal_code      | string     | null: false                   |
+| city             | string     | null: false                   |
+| address          | string     | null: false                   |
+| building         | string     |                               |
+| phone_number     | string     | null: false                   |
+| prefecture_id    | integer    | null: false                   |
 
 - Addresses
   - belongs_to :purchase
