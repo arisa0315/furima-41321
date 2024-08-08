@@ -83,5 +83,6 @@ gem 'devise'
 
 source 'https://rubygems.org' do
   gem 'bundler', '>= 2.4.1'
-  gem 'webpacker' 
 end
+
+gem 'webpacker'

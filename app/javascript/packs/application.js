@@ -1,9 +1,13 @@
-// app/javascript/controllers/index.js
+// app/javascript/packs/application.js
+import Rails from "@rails/ujs"
+import "@hotwired/turbo-rails"
 import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers" // 修正点
+
+Rails.start()
 
 const application = Application.start()
-const context = require.context(".", true, /\.js$/)
+const context = require.context("controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
 
 // Configure Stimulus development experience
