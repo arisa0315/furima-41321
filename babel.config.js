@@ -1,4 +1,3 @@
-// babel.config.js
 module.exports = function(api) {
   var validEnv = ['development', 'test', 'production']
   var currentEnv = api.env()
@@ -77,8 +76,7 @@ module.exports = function(api) {
         {
           async: false
         }
-      ],
-      '@babel/plugin-proposal-optional-chaining' // 追加
+      ]
     ].filter(Boolean)
   }
 }

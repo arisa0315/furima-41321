@@ -2,8 +2,7 @@
 import Rails from "@rails/ujs"
 import "@hotwired/turbo-rails"
 import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers" // 修正点
-
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 Rails.start()
 
 const application = Application.start()
