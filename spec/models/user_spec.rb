@@ -55,21 +55,21 @@ RSpec.describe User, type: :model do
         @user.password = 'abcdef'
         @user.password_confirmation = 'abcdef'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
+        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters, numbers, and hyphens')
       end
 
       it '数字のみのパスワードでは登録できない' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
+        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters, numbers, and hyphens')
       end
 
       it '全角文字を含むパスワードでは登録できない' do
         @user.password = 'password123あ'
         @user.password_confirmation = 'password123あ'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
+        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters, numbers, and hyphens')
       end
 
       it 'パスワードとパスワード確認が一致していないと登録できない' do
