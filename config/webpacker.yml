@@ -6,7 +6,9 @@ default: &default
   public_root_path: public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
-  webpack_compile_output: true
+  compile: true
+  # webpack_compile_output: true
+
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
@@ -90,3 +92,7 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+
+
+
+

@@ -10,7 +10,7 @@
 
 
     <%# エラーメッセージ表示用の部分 %>
-    <%= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: @item %>
 
     <%# 商品画像 %>
     <div class="img-upload">
@@ -52,12 +52,12 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-category" } %>  <%# required: true を削除 %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, { class: "select-box", id: "item-category" } %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :condition_id, Condition.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-condition" } %>  <%# required: true を削除 %>
+        <%= f.collection_select :condition_id, Condition.all, :id, :name, { class: "select-box", id: "item-condition" } %>
       </div>
     </div>
 
@@ -72,17 +72,17 @@
           配送料の負担
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :shipping_fee_burden_id, ShippingFeeBurden.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-shipping-fee-status" } %>  <%# required: true を削除 %>
+        <%= f.collection_select :shipping_fee_burden_id, ShippingFeeBurden.all, :id, :name, { class: "select-box", id: "item-shipping-fee-status" } %>
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-prefecture" } %>  <%# required: true を削除 %>
+        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { class: "select-box", id: "item-prefecture" } %>
         <div class="weight-bold-text">
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-scheduled-delivery" } %>  <%# required: true を削除 %>
+        <%= f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, { class: "select-box", id: "item-scheduled-delivery" } %>
       </div>
     </div>
 
