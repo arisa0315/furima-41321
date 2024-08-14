@@ -86,3 +86,7 @@ source 'https://rubygems.org' do
 end
 
 gem 'webpacker'
+
+gem "active_hash", "~> 3.3"
+
+gem "pry-rails"

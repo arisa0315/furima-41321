@@ -31,3 +31,21 @@
 
 en:
   hello: "Hello world"
+
+en:
+  activerecord:
+    attributes:
+      item:
+        image: "Image"
+        name: "Name"
+        description: "Description"
+        category_id: "Category"
+        condition_id: "Condition"
+        shipping_fee_burden_id: "Shipping fee status"
+        shipping_days_id: "Shipping days"
+        prefecture_id: "Prefecture"
+        price: "Price"
+  errors:
+    messages:
+      can't be blank: "can't be blank"
+      not a number: "is not a number"
