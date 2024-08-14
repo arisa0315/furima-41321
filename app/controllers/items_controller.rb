@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    # 必要なロジックをここに追加
+    @items = Item.order(created_at: :desc)
   end
 
   def new
