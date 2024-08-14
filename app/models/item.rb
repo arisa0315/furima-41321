@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  has_one :purchase
+  # has_one :purchase 商品購入の時に使用する
 
   validates :image, presence: true
   validates :name, presence: true

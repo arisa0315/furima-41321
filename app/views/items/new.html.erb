@@ -8,6 +8,7 @@
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true, turbo: false do |f| %>
 
+
     <%# エラーメッセージ表示用の部分 %>
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -98,7 +99,7 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class: "price-input", id: "item-price", placeholder: "半角数字で入力", data: { action: "input->price#update", price_target: "price" } %>  <%# required: true を削除 %>
+          <%= f.text_field :price, class: "price-input", id: "item-price", placeholder: "半角数字で入力", data: { action: "input->price#update", price_target: "price" } %>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
@@ -109,7 +110,7 @@
         <div class="price-content">
           <span>販売利益</span>
           <span>
-            <span id="profit" data-price-target="profit"></span>円
+            <span id="profit" data-price-target="profit">0</span>円
           </span>
         </div>
       </div>

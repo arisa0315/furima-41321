@@ -1,4 +1,4 @@
-// app/javascript/controllers/price_controller.js
+// app/javascript/price_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
@@ -17,7 +17,7 @@ export default class extends Controller {
     const tax = Math.floor(price * 0.1) 
     const profit = Math.floor(price - tax) 
 
-    this.taxTarget.textContent = tax
-    this.profitTarget.textContent = profit
+    this.taxTarget.textContent = tax.toLocaleString()
+    this.profitTarget.textContent = profit.toLocaleString()
   }
 }
