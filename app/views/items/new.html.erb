@@ -1,5 +1,4 @@
 <%# cssは商品出品のものを併用しています。app/assets/stylesheets/items/new.css %>
-
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png', size: '185x50'), "/" %>
@@ -7,7 +6,6 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true, turbo: false do |f| %>
-
 
     <%# エラーメッセージ表示用の部分 %>
     <%= render 'shared/error_messages', model: @item %>
