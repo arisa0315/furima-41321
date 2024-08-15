@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_one :purchase # 1つのアイテムに1つの購入記録がある場合
+  has_one :purchase 
   has_one_attached :image
 
   # その他のバリデーションや関連付け
