@@ -7,13 +7,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @model = @item
   end
 
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-    @model = @item
     if @item.save
       redirect_to root_path, notice: '商品を出品しました'
     else
