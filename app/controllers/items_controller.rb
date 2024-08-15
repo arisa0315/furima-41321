@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_item, only: [:show]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -19,6 +20,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def item_params
@@ -26,4 +30,9 @@ class ItemsController < ApplicationController
                                  :condition_id, :shipping_fee_burden_id,
                                  :prefecture_id, :shipping_days_id, :price)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end
