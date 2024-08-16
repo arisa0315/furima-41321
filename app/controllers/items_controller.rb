@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_item, only: [:show]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -23,6 +24,26 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if params[:item][:image].present?
+      if @item.update(item_params)
+        redirect_to item_path(@item), notice: '商品情報を更新しました。'
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    else
+      # 画像が未入力の場合、既存の画像を保持して更新
+      if @item.update(item_params.except(:image))
+        redirect_to item_path(@item), notice: '商品情報を更新しました。'
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+  end
+
   private
 
   def item_params
@@ -35,4 +56,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def correct_user
+    redirect_to root_path unless current_user == @item.user
+  end
 end

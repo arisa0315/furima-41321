@@ -19,7 +19,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id: "item-image", required: true %>
+        <%= f.file_field :image, id: "item-image" %>  <%# 必須属性を削除 %>
       </div>
     </div>
 
@@ -29,13 +29,13 @@
         商品名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :name, class: "items-text", id: "item-name", placeholder: "商品名（必須 40文字まで)", maxlength: "40", required: true %>
+      <%= f.text_area :name, class: "items-text", id: "item-name", placeholder: "商品名（必須 40文字まで)", maxlength: "40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
           商品の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :description, class: "items-text", id: "item-info", placeholder: "商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）", rows: "7", maxlength: "1000", required: true %>
+        <%= f.text_area :description, class: "items-text", id: "item-info", placeholder: "商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）", rows: "7", maxlength: "1000" %>
       </div>
     </div>
 
@@ -47,13 +47,13 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-category", required: true } %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-category" } %>
         
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :condition, Item.conditions.keys, :to_s, :humanize, { prompt: '---' }, { class: "select-box", id: "item-sales-status", required: true } %>
+        <%= f.collection_select :condition_id, Condition.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-sales-status" } %>
       </div>
     </div>
 
@@ -68,19 +68,19 @@
           配送料の負担
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :shipping_fee_burden, Item.shipping_fee_burdens.keys, :to_s, :humanize, { prompt: '---' }, { class: "select-box", id: "item-shipping-fee-status", required: true } %>
+        <%= f.collection_select :shipping_fee_burden_id, ShippingFeeBurden.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-shipping-fee-status" } %>
         
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-prefecture", required: true } %>
+        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-prefecture" } %>
         
         <div class="weight-bold-text">
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select :shipping_days, Item.shipping_days.keys, :to_s, :humanize, { prompt: '---' }, { class: "select-box", id: "item-scheduled-delivery", required: true } %>
+        <%= f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, { prompt: '---' }, { class: "select-box", id: "item-scheduled-delivery" } %>
       </div>
     </div>
 
@@ -97,7 +97,7 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class: "price-input", id: "item-price", placeholder: "半角数字で入力", required: true %>
+          <%= f.text_field :price, class: "price-input", id: "item-price", placeholder: "半角数字で入力" %>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
@@ -135,8 +135,8 @@
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する", class: "sell-btn" %>
-      <%= link_to 'もどる', root_path, class: "back-btn" %>
+      <%= f.submit "変更する", class: "sell-btn" %>
+      <%= link_to 'もどる', item_path(@item), class: "back-btn" %>
     </div>
     <% end %>
   </div>
