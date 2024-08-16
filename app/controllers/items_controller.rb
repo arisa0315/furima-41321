@@ -27,22 +27,13 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def update
-    if params[:item][:image].present?
+    def update
       if @item.update(item_params)
         redirect_to item_path(@item), notice: '商品情報を更新しました。'
       else
         render :edit, status: :unprocessable_entity
       end
-    else
-      # 画像が未入力の場合、既存の画像を保持して更新
-      if @item.update(item_params.except(:image))
-        redirect_to item_path(@item), notice: '商品情報を更新しました。'
-      else
-        render :edit, status: :unprocessable_entity
-      end
     end
-  end
 
   private
 
