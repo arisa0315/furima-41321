@@ -86,8 +86,6 @@ source 'https://rubygems.org' do
   gem 'bundler', '>= 2.4.1'
 end
 
-gem 'webpacker'
-
 gem "active_hash", "~> 3.3"
 
 gem "pry-rails"
