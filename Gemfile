@@ -70,6 +70,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'database_cleaner-active_record'
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
@@ -90,3 +91,13 @@ gem 'webpacker'
 gem "active_hash", "~> 3.3"
 
 gem "pry-rails"
+
+gem 'pry'
+gem 'pry-byebug'
+gem 'image_processing', '~> 1.2'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'gon'
+gem 'payjp'
+

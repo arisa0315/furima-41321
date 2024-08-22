@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, unless: :skip_basic_auth?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_url_options_for_active_storage
 
   private
 
@@ -12,6 +13,10 @@ class ApplicationController < ActionController::Base
 
   def skip_basic_auth?
     Rails.env.test?
+  end
+
+  def set_url_options_for_active_storage
+    ActiveStorage::Current.url_options = { protocol: request.protocol, host: request.host_with_port }
   end
 
   protected

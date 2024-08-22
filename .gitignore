@@ -37,3 +37,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.env
+
+# Ignore large files
+google-chrome-stable_current_amd64.deb
