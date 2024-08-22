@@ -16,7 +16,7 @@
 
 - Users
   - has_many :items
-  - has_many :purchases
+  - has_many :orders
 
 ### Items Table
 | Column          | Type        | Options                       |
@@ -33,15 +33,15 @@
 
 - Items
   - belongs_to :user
-  - has_one :purchase
+  - has_one :order
 
-### Purchases Table
+### orders Table
 | Column  | Type       | Options                       |
 |---------|------------|-------------------------------|
 | item    | references | null: false, foreign_key: true|
 | user    | references | null: false, foreign_key: true|
 
-- Purchases
+- orders
   - belongs_to :user
   - belongs_to :item
   - has_one :address
@@ -49,7 +49,7 @@
 ### Addresses Table
 | Column           | Type       | Options                       |
 |------------------|------------|-------------------------------|
-| purchase         | references | null: false, foreign_key: true|
+| order            | references | null: false, foreign_key: true|
 | postal_code      | string     | null: false                   |
 | city             | string     | null: false                   |
 | address          | string     | null: false                   |
@@ -58,4 +58,4 @@
 | prefecture_id    | integer    | null: false                   |
 
 - Addresses
-  - belongs_to :purchase
+  - belongs_to :order

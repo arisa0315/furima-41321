@@ -50,7 +50,7 @@ class OrderForm
   # 売却済みの商品は購入できないバリデーション
   def item_not_sold_out
     item = Item.find(item_id)
-    if item.order.present? # sold_outメソッドより、purchaseの有無を確認
+    if item.order.present? # sold_outメソッドより、orderの有無を確認
       errors.add(:base, "This item has already been sold")
     end
   end

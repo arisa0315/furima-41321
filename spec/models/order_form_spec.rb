@@ -13,6 +13,11 @@ RSpec.describe OrderForm, type: :model do
       it '全ての値が正しく入力されていれば購入できる' do
         expect(@order_form).to be_valid
       end
+
+      it '建物名が空でも購入できる' do
+        @order_form.building = ''  # 建物名を空に設定
+        expect(@order_form).to be_valid
+      end
     end
 
     context '購入がうまくいかないとき' do
@@ -74,6 +79,18 @@ RSpec.describe OrderForm, type: :model do
         @order_form.token = nil
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it 'user_idが存在しなければ登録できない' do
+        @order_form.user_id = nil
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idが存在しなければ登録できない' do
+        @order_form.item_id = nil
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("Item can't be blank")
       end
     end
 
