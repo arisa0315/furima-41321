@@ -20,7 +20,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id: "item-image" %>  <%# required: true を削除 %>
+        <%= f.file_field :image, id: "item-image" %>  
       </div>
     </div>
 
@@ -30,7 +30,7 @@
         商品名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :name, class: "items-text", id: "item-name", placeholder: "商品名（必須 40文字まで)", maxlength: "40" %>  <%# required: true を削除 %>
+      <%= f.text_area :name, class: "items-text", id: "item-name", placeholder: "商品名（必須 40文字まで)", maxlength: "40" %>  
       <div class="error"><%= @item.errors.full_messages_for(:name).join(", ") %></div>
 
       <div class="items-explain">
@@ -38,7 +38,7 @@
           商品の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :description, class: "items-text", id: "item-info", placeholder: "商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）", rows: "7", maxlength: "1000" %>  <%# required: true を削除 %>
+        <%= f.text_area :description, class: "items-text", id: "item-info", placeholder: "商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）", rows: "7", maxlength: "1000" %>  
       </div>
     </div>
 

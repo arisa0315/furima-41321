@@ -7,7 +7,6 @@ environment.config.delete('node.net');
 environment.config.delete('node.tls');
 environment.config.delete('node.child_process');
 
-// 必要な設定のみを残す
 environment.config.set('node', {
   global: true,
   __filename: false,

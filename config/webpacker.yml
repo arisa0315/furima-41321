@@ -1,14 +1,11 @@
-# Note: You must restart bin/webpack-dev-server for changes to take effect
-
 default: &default
   source_path: app/javascript
-  source_entry_path: packs
+  source_entry_path: "" 
   public_root_path: public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
   compile: true
   # webpack_compile_output: true
-
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
@@ -73,7 +70,6 @@ development:
     watch_options:
       ignored: '**/node_modules/**'
 
-
 test:
   <<: *default
   compile: true
@@ -92,7 +88,3 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
-
-
-
-

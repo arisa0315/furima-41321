@@ -53,6 +53,9 @@ class ItemsController < ApplicationController
   end
 
   def correct_user
-    redirect_to root_path unless current_user == @item.user
+    # 現在のユーザーが出品者でない場合、または商品が売却済みの場合にリダイレクト
+    if current_user != @item.user || @item.sold_out?
+      redirect_to root_path
+    end
   end
 end
