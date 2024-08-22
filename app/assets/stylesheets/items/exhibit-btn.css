@@ -1,4 +1,4 @@
-.order-btn {
+.purchase-btn {
   width: 120px;
   background: #3ccace;
   text-align: center;
@@ -9,7 +9,7 @@
   padding: 15px;
 }
 
-.order-btn-text {
+.purchase-btn-text {
   color: #fff;
   display: block;
   font-size: 18px;
@@ -17,6 +17,6 @@
   margin-bottom: 5px;
 }
 
-.order-btn-icon {
+.purchase-btn-icon {
   width: 60%;
 }
