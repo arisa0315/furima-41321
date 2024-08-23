@@ -8,7 +8,7 @@
     <%= form_with model: @item, local: true, turbo: false do |f| %>
 
     <%# エラーメッセージ表示用の部分 %>
-    <% render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 商品画像 %>
     <div class="img-upload">
@@ -31,8 +31,6 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class: "items-text", id: "item-name", placeholder: "商品名（必須 40文字まで)", maxlength: "40" %>  
-      <div class="error"><%= @item.errors.full_messages_for(:name).join(", ") %></div>
-
       <div class="items-explain">
         <div class="weight-bold-text">
           商品の説明
