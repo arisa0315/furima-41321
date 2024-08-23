@@ -1,26 +1,28 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initializePriceCalculation() {
   const priceInput = document.getElementById('item-price');
   const taxDisplay = document.getElementById('add-tax-price');
   const profitDisplay = document.getElementById('profit');
 
   function calculatePrice() {
-    // priceInput要素が存在することを確認してから計算を行う
     if (!priceInput) {
       return;
     }
     const price = parseInt(priceInput.value, 10) || 0;
-    const tax = Math.floor(price * 0.1); // 販売手数料(10%)の計算
-    const profit = price - tax; // 販売利益の計算
+    const tax = Math.floor(price * 0.1);
+    const profit = price - tax;
 
     taxDisplay.textContent = tax;
     profitDisplay.textContent = profit;
   }
 
-  // priceInput要素が存在する場合のみイベントリスナーを追加
   if (priceInput) {
     priceInput.addEventListener('input', calculatePrice);
+    calculatePrice();  // 初期化時に一度計算して表示する
   }
+}
 
-  window.addEventListener("turbo:load", calculatePrice);
-  window.addEventListener("turbo:render", calculatePrice);
-});
+document.addEventListener('DOMContentLoaded', initializePriceCalculation);
+
+// Turboでのページ遷移時にも初期化を行う
+document.addEventListener('turbo:load', initializePriceCalculation);
+document.addEventListener('turbo:render', initializePriceCalculation);
