@@ -27,6 +27,9 @@ const pay = () => {
         numberElement.clear();
         expiryElement.clear();
         cvcElement.clear();
+
+        // トークン付きのフォームを送信
+        document.getElementById("charge-form").submit();
     });
   });
 };
