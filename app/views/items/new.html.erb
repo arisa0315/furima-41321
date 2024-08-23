@@ -84,11 +84,11 @@
       </div>
     </div>
 
-    <%# 販売価格 - Stimulusコントローラを使用 %>
+    <%# 販売価格 %>
     <div class="sell-price" data-controller="price">
       <div class="weight-bold-text question-text">
         <span>販売価格<br>(¥300〜9,999,999)</span>
-        <a class="question" href="#">?</a>
+        <a class="question" href="https://example.com/pricing-info" target="_blank">?</a> 
       </div>
       <div>
         <div class="price-content">
@@ -97,18 +97,18 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class: "price-input", id: "item-price", placeholder: "半角数字で入力", data: { action: "input->price#update", price_target: "price" } %>
+          <%= f.text_field :price, class: "price-input", id: "item-price", placeholder: "半角数字で入力" %>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
           <span>
-            <span id="add-tax-price" data-price-target="tax">0</span>円
+            <span id='add-tax-price'></span>円
           </span>
         </div>
         <div class="price-content">
           <span>販売利益</span>
           <span>
-            <span id="profit" data-price-target="profit">0</span>円
+            <span id='profit'></span>円
           </span>
         </div>
       </div>
